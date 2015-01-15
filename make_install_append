@@ -1,0 +1,3 @@
+install -d -m 755 %{buildroot}/usr/share/defaults/pycadf
+mv %{buildroot}/usr/etc/pycadf/* %{buildroot}/usr/share/defaults/pycadf
+rm -rf %{buildroot}/usr/etc
