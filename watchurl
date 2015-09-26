@@ -1,4 +1,3 @@
-# openstack (Kilo stable) needs version <0.9.0
-# once they update requirement, we can push >=0.9.0 versions
-# check: https://github.com/openstack/requirements/blob/stable/kilo/global-requirements.txt
-watchurl=http://tarballs.openstack.org/pycadf/pycadf-(0.8.[\d.]*).tar.gz.*
+# openstack Liberty needs version >= 1.1.0
+# for more information check https://github.com/openstack/requirements/blob/master/global-requirements.txt
+watchurl=http://tarballs.openstack.org/pycadf/pycadf-([\d.]*).tar.gz.*
