@@ -4,7 +4,7 @@
 #
 Name     : pycadf
 Version  : 2.0.1
-Release  : 18
+Release  : 19
 URL      : http://tarballs.openstack.org/pycadf/pycadf-2.0.1.tar.gz
 Source0  : http://tarballs.openstack.org/pycadf/pycadf-2.0.1.tar.gz
 Summary  : CADF Library
