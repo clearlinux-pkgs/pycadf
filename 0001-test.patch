@@ -1,0 +1,25 @@
+From 29eb693ba3b2871fa95fe0b6dff272f1e1297fb9 Mon Sep 17 00:00:00 2001
+From: Alberto Murillo <alberto.murillo.silva@intel.com>
+Date: Mon, 18 Apr 2016 10:39:55 -0500
+Subject: [PATCH] test
+
+---
+ test-requirements.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/test-requirements.txt b/test-requirements.txt
+index bc262b6..ba577f7 100644
+--- a/test-requirements.txt
++++ b/test-requirements.txt
+@@ -3,7 +3,7 @@
+ # process, which may cause wedges in the gate later.
+ # Hacking already pins down pep8, pyflakes and flake8
+ hacking<0.11,>=0.10.0
+-flake8-docstrings==0.2.1.post1 # MIT
++flake8-docstrings
+ 
+ coverage>=3.6 # Apache-2.0
+ discover # BSD
+-- 
+2.5.5
+
