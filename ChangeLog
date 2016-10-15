@@ -1,14 +1,11 @@
 CHANGES
 =======
 
-2.3.0
+2.2.0
 -----
 
-* Add missing os-volumes_boot to nova_api_audit_map.conf
 * Updated from global requirements
-* Updated from global requirements
-* Remove unused pngmath Sphinx extension
-* Updated from global requirements
+* Update .gitreview for stable/mitaka
 
 2.1.0
 -----
@@ -22,7 +19,6 @@ CHANGES
 * Fix wrong use of comma
 * Updated from global requirements
 * remove suport for py33
-* Remove invalid character from neutron_api_audit_map.conf
 * Put py34 first in the env order of tox
 
 2.0.1
@@ -294,6 +290,10 @@ CHANGES
 -----
 
 * validate attributes against basestring
+
+v0.1
+----
+
 * add support for audit api middleware
 * DMTF CADF format
 * test commit
