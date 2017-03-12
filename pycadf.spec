@@ -6,7 +6,7 @@
 #
 Name     : pycadf
 Version  : 2.4.0
-Release  : 31
+Release  : 32
 URL      : http://tarballs.openstack.org/pycadf/pycadf-2.4.0.tar.gz
 Source0  : http://tarballs.openstack.org/pycadf/pycadf-2.4.0.tar.gz
 Source99 : http://tarballs.openstack.org/pycadf/pycadf-2.4.0.tar.gz.asc
@@ -20,38 +20,12 @@ Requires: oslo.config
 Requires: oslo.serialization
 Requires: pytz
 Requires: six
-BuildRequires : Jinja2
-BuildRequires : Sphinx-python
 BuildRequires : configparser-python
-BuildRequires : coverage-python
-BuildRequires : debtcollector-python
-BuildRequires : discover-python
-BuildRequires : docutils-python
-BuildRequires : extras
-BuildRequires : extras-python
-BuildRequires : flake8-docstrings-python
-BuildRequires : funcsigs-python
-BuildRequires : msgpack-python-python
-BuildRequires : oslo.config
-BuildRequires : oslo.serialization-python
-BuildRequires : oslo.utils-python
-BuildRequires : oslosphinx-python
-BuildRequires : oslotest-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : pluggy
-BuildRequires : py-python
-BuildRequires : pyrsistent-python
-BuildRequires : pytest
 BuildRequires : python-dev
 BuildRequires : python3-dev
-BuildRequires : pytz-python
 BuildRequires : setuptools
-BuildRequires : testrepository-python
-BuildRequires : testtools
-BuildRequires : testtools-python
-BuildRequires : tox
-BuildRequires : virtualenv
 Patch1: 0001-test.patch
 
 %description
@@ -84,12 +58,12 @@ python components for the pycadf package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1489035708
+export SOURCE_DATE_EPOCH=1489282582
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1489035708
+export SOURCE_DATE_EPOCH=1489282582
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
