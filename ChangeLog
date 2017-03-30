@@ -1,6 +1,20 @@
 CHANGES
 =======
 
+2.5.0
+-----
+
+* Remove references to Python 3.4
+* cleanup string
+* Add Constraints support
+* Show team and repo badges on README
+* Updated from global requirements
+* Updated from global requirements
+* Changed the home-page link
+* Updated from global requirements
+* Updated from global requirements
+* Clean oslo.i18n
+
 2.4.0
 -----
 
