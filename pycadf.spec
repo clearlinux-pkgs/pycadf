@@ -6,7 +6,7 @@
 #
 Name     : pycadf
 Version  : 2.5.0
-Release  : 34
+Release  : 35
 URL      : http://tarballs.openstack.org/pycadf/pycadf-2.5.0.tar.gz
 Source0  : http://tarballs.openstack.org/pycadf/pycadf-2.5.0.tar.gz
 Source99 : http://tarballs.openstack.org/pycadf/pycadf-2.5.0.tar.gz.asc
