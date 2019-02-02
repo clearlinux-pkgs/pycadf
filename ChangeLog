@@ -1,6 +1,20 @@
 CHANGES
 =======
 
+2.9.0
+-----
+
+* Add release note for MD5 hash removal
+* Change openstack-dev to openstack-discuss
+* Enabling FIPS mode by using sha256 instead of md5
+* Don't quote {posargs} in tox.ini
+* Use templates for cover and lower-constraints
+* add lib-forward-testing-python3 test job
+* add python 3.6 unit test job
+* switch documentation job to new PTI
+* import zuul job settings from project-config
+* Switch to stestr
+
 2.8.0
 -----
 
