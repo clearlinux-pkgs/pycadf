@@ -6,10 +6,10 @@
 #
 Name     : pycadf
 Version  : 2.9.0
-Release  : 42
+Release  : 43
 URL      : http://tarballs.openstack.org/pycadf/pycadf-2.9.0.tar.gz
 Source0  : http://tarballs.openstack.org/pycadf/pycadf-2.9.0.tar.gz
-Source99 : http://tarballs.openstack.org/pycadf/pycadf-2.9.0.tar.gz.asc
+Source1  : http://tarballs.openstack.org/pycadf/pycadf-2.9.0.tar.gz.asc
 Summary  : CADF Library
 Group    : Development/Tools
 License  : Apache-2.0
@@ -23,15 +23,54 @@ Requires: oslo.serialization
 Requires: pytz
 Requires: six
 BuildRequires : buildreq-distutils3
+BuildRequires : debtcollector
+BuildRequires : oslo.config
+BuildRequires : oslo.serialization
 BuildRequires : pbr
+BuildRequires : pytz
+BuildRequires : six
 Patch1: 0001-test.patch
 
 %description
 ========================
 Team and repository tags
 ========================
+
 .. image:: https://governance.openstack.org/tc/badges/pycadf.svg
-:target: https://governance.openstack.org/tc/reference/tags/index.html
+    :target: https://governance.openstack.org/tc/reference/tags/index.html
+
+.. Change things from this point on
+
+======
+PyCADF
+======
+
+.. image:: https://img.shields.io/pypi/v/pycadf.svg
+    :target: https://pypi.org/project/pycadf/
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/dm/pycadf.svg
+    :target: https://pypi.org/project/pycadf/
+    :alt: Downloads
+
+This library provides an auditing data model based on the `Cloud Auditing Data
+Federation <https://www.dmtf.org/standards/cadf>`_ specification, primarily for
+use by OpenStack. The goal is to establish strict expectations about what
+auditors can expect from audit notifications.
+
+* `PyPi`_ - package installation
+* `Online Documentation`_
+* `Launchpad project`_ - release management
+* `Blueprints`_ - feature specifications
+* `Bugs`_ - issue tracking
+* `Source`_
+
+.. _PyPi: https://pypi.org/project/pycadf
+.. _Online Documentation: https://docs.openstack.org/pycadf/latest/
+.. _Launchpad project: https://launchpad.net/pycadf
+.. _Blueprints: https://blueprints.launchpad.net/pycadf
+.. _Bugs: https://bugs.launchpad.net/pycadf
+.. _Source: https://git.openstack.org/cgit/openstack/pycadf
 
 %package data
 Summary: data components for the pycadf package.
@@ -62,6 +101,7 @@ python components for the pycadf package.
 Summary: python3 components for the pycadf package.
 Group: Default
 Requires: python3-core
+Provides: pypi(pycadf)
 
 %description python3
 python3 components for the pycadf package.
@@ -69,21 +109,29 @@ python3 components for the pycadf package.
 
 %prep
 %setup -q -n pycadf-2.9.0
+cd %{_builddir}/pycadf-2.9.0
 %patch1 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1549124592
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1583205087
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
 %install
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/pycadf
-cp LICENSE %{buildroot}/usr/share/package-licenses/pycadf/LICENSE
+cp %{_builddir}/pycadf-2.9.0/LICENSE %{buildroot}/usr/share/package-licenses/pycadf/b9a131284bb03c49a33f0ade435e87c1bff4394b
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -108,7 +156,7 @@ rm -rf %{buildroot}/usr/etc
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/pycadf/LICENSE
+/usr/share/package-licenses/pycadf/b9a131284bb03c49a33f0ade435e87c1bff4394b
 
 %files python
 %defattr(-,root,root,-)
