@@ -6,7 +6,7 @@
 #
 Name     : pycadf
 Version  : 3.1.0
-Release  : 44
+Release  : 45
 URL      : http://tarballs.openstack.org/pycadf/pycadf-3.1.0.tar.gz
 Source0  : http://tarballs.openstack.org/pycadf/pycadf-3.1.0.tar.gz
 Source1  : http://tarballs.openstack.org/pycadf/pycadf-3.1.0.tar.gz.asc
